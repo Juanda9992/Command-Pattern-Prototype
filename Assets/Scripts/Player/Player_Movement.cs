@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
+    [SerializeField] private Transform interactOrigin;
     [SerializeField] private float moveTime;
 
     [ContextMenu("Move Forward")]
@@ -21,5 +22,19 @@ public class Player_Movement : MonoBehaviour
     public void RotateRight()
     {
         transform.DOLocalRotate(Vector3.up * 90,moveTime,RotateMode.WorldAxisAdd);
+    }
+
+    [ContextMenu("Interact")]
+    public void Interact()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(interactOrigin.position, transform.forward);
+        if(Physics.Raycast(ray, out hit,0.5f))
+        {
+            if(hit.collider.TryGetComponent<Interactable>(out Interactable interactable))
+            {
+                interactable.Interact();
+            }
+        }
     }
 }
