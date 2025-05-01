@@ -6,9 +6,16 @@ public class Input_Handler : MonoBehaviour
 {
     [SerializeField] private Player_Movement player_controller;
     public static Input_Handler Instance { get; private set; }
+
+    public Command moveForward, rotateLeft, rotateRight, interact;
     void Awake()
     {
         Instance = this;
+
+        moveForward = new MoveForwardCommand();
+        rotateLeft = new RotateLeftCommand();
+        rotateRight = new RotateRightCommand();
+        interact = new InteractCommand();
     }
 
     // Update is called once per frame
@@ -16,19 +23,19 @@ public class Input_Handler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            player_controller.RotateLeft();
+            rotateLeft.Execute();
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            player_controller.RotateRight();
+            rotateRight.Execute();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            player_controller.Interact();
+            interact.Execute();
         }
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
-            player_controller.MoveForward();
+            moveForward.Execute();
         }
     }
 
