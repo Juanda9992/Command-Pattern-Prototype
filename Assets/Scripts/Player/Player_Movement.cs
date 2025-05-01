@@ -10,4 +10,16 @@ public class Player_Movement : MonoBehaviour
     {
         transform.DOLocalMove(transform.position +transform.forward,moveTime);
     }
+
+    [ContextMenu("Rotate Left")]
+    public void RotateLeft()
+    {
+        transform.DOLocalRotate(Vector3.up * -90,moveTime,RotateMode.WorldAxisAdd);
+    }
+
+    [ContextMenu("Rotate Right")]
+    public void RotateRight()
+    {
+        transform.DOLocalRotate(Vector3.up * 90,moveTime,RotateMode.WorldAxisAdd);
+    }
 }
