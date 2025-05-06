@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Input_Handler : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Input_Handler : MonoBehaviour
     public bool isUndoingCommand = false;
 
     public List<Command> allCommandsStored = new List<Command>();
+
+    [Header("UI Settings")]
+    [SerializeField] private Button playButton, undoButton;
     void Awake()
     {
         Instance = this;
@@ -19,6 +23,9 @@ public class Input_Handler : MonoBehaviour
         rotateLeft = new RotateLeftCommand();
         rotateRight = new RotateRightCommand();
         interact = new InteractCommand();
+
+        playButton.onClick.AddListener(PlayStoredCommands);
+        undoButton.onClick.AddListener(UndoLastCommand);
     }
 
     // Update is called once per frame
