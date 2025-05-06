@@ -48,11 +48,11 @@ public class InteractCommand: Command
 {
     public override void Execute()
     {
-        Input_Handler.Instance.GetPlayer().Interact();
+        Input_Handler.Instance.GetPlayer().Interact(true);
     }
 
     public override void Undo()
     {
-        
+        Input_Handler.Instance.GetPlayer().Interact(false);
     }
 }

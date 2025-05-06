@@ -31,7 +31,7 @@ public class Player_Movement : MonoBehaviour
     }
 
     [ContextMenu("Interact")]
-    public void Interact()
+    public void Interact(bool forwardInteraction)
     {
         RaycastHit hit;
         Ray ray = new Ray(interactOrigin.position, transform.forward);
@@ -39,7 +39,14 @@ public class Player_Movement : MonoBehaviour
         {
             if(hit.collider.TryGetComponent<Interactable>(out Interactable interactable))
             {
-                interactable.Interact();
+                if(forwardInteraction)
+                {
+                    interactable.Interact();
+                }
+                else
+                {
+                    interactable.Undo();
+                }
             }
         }
     }

@@ -8,4 +8,9 @@ public class Debug_Interactable : Interactable
     {
         Debug.Log("Interacted with debug cube");
     }
+
+    public override void Undo()
+    {
+        Debug.Log("Cancel interaction");
+    }
 }
