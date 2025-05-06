@@ -25,20 +25,26 @@ public class Input_Handler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            allCommandsStored.Add(rotateLeft);
+            AddCommand(rotateLeft);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            allCommandsStored.Add(rotateRight);
+            AddCommand(rotateRight);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            allCommandsStored.Add(interact);
+            AddCommand(interact);
         }
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
-            allCommandsStored.Add(moveForward);
+            AddCommand(moveForward);
         }
+    }
+
+    public void AddCommand(Command command)
+    {
+        Debug.Log(command);
+        allCommandsStored.Add(command);
     }
 
     public Player_Movement GetPlayer()
@@ -46,9 +52,19 @@ public class Input_Handler : MonoBehaviour
         return player_controller;
     }
 
+    [ContextMenu("Test Replay")]
     public void PlayStoredCommands()
     {
-        
+        StartCoroutine(nameof(CommandsReplay));
+    }
+
+    private IEnumerator CommandsReplay()
+    {
+        for(int i = 0; i< allCommandsStored.Count;i++)
+        {
+            allCommandsStored[i].Execute();
+            yield return new WaitForSeconds(1.1f);
+        }
     }
 
 }
