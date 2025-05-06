@@ -8,6 +8,7 @@ public class Input_Handler : MonoBehaviour
     public static Input_Handler Instance { get; private set; }
 
     public Command moveForward, rotateLeft, rotateRight, interact;
+    public bool isUndoingCommand = false;
 
     public List<Command> allCommandsStored = new List<Command>();
     void Awake()
@@ -61,8 +62,18 @@ public class Input_Handler : MonoBehaviour
     [ContextMenu("Undo Command")]
     public void UndoLastCommand()
     {
+        StartCoroutine(nameof(UndoLastCommandCoroutine));
+    }
+
+    private IEnumerator UndoLastCommandCoroutine()
+    {
+        isUndoingCommand = true;
         allCommandsStored[allCommandsStored.Count -1].Undo();
         allCommandsStored.RemoveAt(allCommandsStored.Count -1);
+
+        yield return new WaitForSeconds(1.1f);
+
+        isUndoingCommand = false;
     }
 
     private IEnumerator CommandsReplay()
