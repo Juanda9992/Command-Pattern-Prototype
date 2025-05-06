@@ -58,6 +58,13 @@ public class Input_Handler : MonoBehaviour
         StartCoroutine(nameof(CommandsReplay));
     }
 
+    [ContextMenu("Undo Command")]
+    public void UndoLastCommand()
+    {
+        allCommandsStored[allCommandsStored.Count -1].Undo();
+        allCommandsStored.RemoveAt(allCommandsStored.Count -1);
+    }
+
     private IEnumerator CommandsReplay()
     {
         for(int i = 0; i< allCommandsStored.Count;i++)

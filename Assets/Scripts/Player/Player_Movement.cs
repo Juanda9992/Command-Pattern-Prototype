@@ -12,6 +12,12 @@ public class Player_Movement : MonoBehaviour
         transform.DOLocalMove(transform.position +transform.forward,moveTime);
     }
 
+    [ContextMenu("Move Backward")]
+    public void MoveBackward()
+    {
+        transform.DOLocalMove(transform.position -transform.forward,moveTime);
+    }
+
     [ContextMenu("Rotate Left")]
     public void RotateLeft()
     {
