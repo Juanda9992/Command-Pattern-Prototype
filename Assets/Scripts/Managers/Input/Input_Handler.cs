@@ -8,6 +8,8 @@ public class Input_Handler : MonoBehaviour
     public static Input_Handler Instance { get; private set; }
 
     public Command moveForward, rotateLeft, rotateRight, interact;
+
+    public List<Command> allCommandsStored = new List<Command>();
     void Awake()
     {
         Instance = this;
@@ -23,25 +25,30 @@ public class Input_Handler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            rotateLeft.Execute();
+            allCommandsStored.Add(rotateLeft);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            rotateRight.Execute();
+            allCommandsStored.Add(rotateRight);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            interact.Execute();
+            allCommandsStored.Add(interact);
         }
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
-            moveForward.Execute();
+            allCommandsStored.Add(moveForward);
         }
     }
 
     public Player_Movement GetPlayer()
     {
         return player_controller;
+    }
+
+    public void PlayStoredCommands()
+    {
+        
     }
 
 }

@@ -21,16 +21,16 @@ public class UI_Button_Input : MonoBehaviour
         switch(buttonAction)
         {
             case ActionType.RotateLeft:
-                Input_Handler.Instance.rotateLeft.Execute();
+                Input_Handler.Instance.allCommandsStored.Add(Input_Handler.Instance.rotateLeft);
             break;
             case ActionType.RotateRight:
-                Input_Handler.Instance.rotateRight.Execute();
+                Input_Handler.Instance.allCommandsStored.Add(Input_Handler.Instance.rotateRight);
             break;
             case ActionType.MoveForward:
-                Input_Handler.Instance.moveForward.Execute();
+                Input_Handler.Instance.allCommandsStored.Add(Input_Handler.Instance.moveForward);
             break;
             case ActionType.Interact:
-                Input_Handler.Instance.interact.Execute();
+                Input_Handler.Instance.allCommandsStored.Add(Input_Handler.Instance.interact);
             break;
         }
     }
