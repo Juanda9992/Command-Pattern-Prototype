@@ -30,6 +30,7 @@ public class Input_Handler : MonoBehaviour
         undoButton.onClick.AddListener(UndoLastCommand);
 
         SetUndoButtonState();
+        SetPlayButtonState();
     }
 
     // Update is called once per frame
@@ -59,6 +60,7 @@ public class Input_Handler : MonoBehaviour
         action_Buttons_UI_Manager.InstantiateButton(actionType);
 
         SetUndoButtonState();
+        SetPlayButtonState();
     }
 
     public Player_Movement GetPlayer()
@@ -69,6 +71,12 @@ public class Input_Handler : MonoBehaviour
     private void SetUndoButtonState()
     {
         undoButton.interactable = allCommandsStored.Count > 0;
+    }
+
+
+    private void SetPlayButtonState()
+    {
+        playButton.interactable = allCommandsStored.Count >0;
     }
 
     [ContextMenu("Test Replay")]
@@ -90,6 +98,7 @@ public class Input_Handler : MonoBehaviour
         allCommandsStored.RemoveAt(allCommandsStored.Count -1);
 
         SetUndoButtonState();
+        SetPlayButtonState();
 
         action_Buttons_UI_Manager.RemoveLastAction();
 
