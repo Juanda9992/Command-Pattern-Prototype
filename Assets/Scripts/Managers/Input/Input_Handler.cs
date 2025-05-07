@@ -112,6 +112,7 @@ public class Input_Handler : MonoBehaviour
         for(int i = 0; i< allCommandsStored.Count;i++)
         {
             allCommandsStored[i].Execute();
+            action_Buttons_UI_Manager.MoveHightlightToButton(i);
             yield return new WaitForSeconds(1.1f);
         }
     }
