@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Input_Handler : MonoBehaviour
 {
     [SerializeField] private Player_Movement player_controller;
+    [SerializeField] private Action_Buttons_UI_Manager action_Buttons_UI_Manager;
     public static Input_Handler Instance { get; private set; }
 
     public Command moveForward, rotateLeft, rotateRight, interact;
@@ -14,7 +15,8 @@ public class Input_Handler : MonoBehaviour
     public List<Command> allCommandsStored = new List<Command>();
 
     [Header("UI Settings")]
-    [SerializeField] private Button playButton, undoButton;
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button undoButton;
     void Awake()
     {
         Instance = this;
@@ -33,26 +35,26 @@ public class Input_Handler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            AddCommand(rotateLeft);
+            AddCommand(rotateLeft,ActionType.RotateLeft);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            AddCommand(rotateRight);
+            AddCommand(rotateRight,ActionType.RotateRight);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            AddCommand(interact);
+            AddCommand(interact,ActionType.Interact);
         }
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
-            AddCommand(moveForward);
+            AddCommand(moveForward,ActionType.MoveForward);
         }
     }
 
-    public void AddCommand(Command command)
+    public void AddCommand(Command command, ActionType actionType)
     {
-        Debug.Log(command);
         allCommandsStored.Add(command);
+        action_Buttons_UI_Manager.InstantiateButton(actionType);
     }
 
     public Player_Movement GetPlayer()
