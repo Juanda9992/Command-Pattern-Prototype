@@ -13,10 +13,16 @@ public class Input_Handler : MonoBehaviour
     public bool isUndoingCommand = false;
 
     public List<Command> allCommandsStored = new List<Command>();
+    [SerializeField] private bool deleteOnUndo; 
 
     [Header("UI Settings")]
     [SerializeField] private Button playButton;
+    [SerializeField] private Button redoButton;
     [SerializeField] private Button undoButton;
+
+    private bool executingFirstCommand;
+
+    private int commandIndex= -1;
     void Awake()
     {
         Instance = this;
@@ -27,10 +33,12 @@ public class Input_Handler : MonoBehaviour
         interact = new InteractCommand();
 
         playButton.onClick.AddListener(PlayStoredCommands);
+        redoButton.onClick.AddListener(RedoCommand);
         undoButton.onClick.AddListener(UndoLastCommand);
 
         SetUndoButtonState();
         SetPlayButtonState();
+        SetRedoButtonState();
     }
 
     // Update is called once per frame
@@ -70,13 +78,18 @@ public class Input_Handler : MonoBehaviour
 
     private void SetUndoButtonState()
     {
-        undoButton.interactable = allCommandsStored.Count > 0;
+        undoButton.interactable = allCommandsStored.Count > 0 && commandIndex >= 0;
     }
 
 
     private void SetPlayButtonState()
     {
         playButton.interactable = allCommandsStored.Count >0;
+    }
+
+    private void SetRedoButtonState()
+    {
+        redoButton.interactable = allCommandsStored.Count > 0 && commandIndex < allCommandsStored.Count -1;
     }
 
     [ContextMenu("Test Replay")]
@@ -91,30 +104,65 @@ public class Input_Handler : MonoBehaviour
         StartCoroutine(nameof(UndoLastCommandCoroutine));
     }
 
+    public void RedoCommand()
+    {
+        StartCoroutine(nameof(MoveNextCommand));
+    }
+
     private IEnumerator UndoLastCommandCoroutine()
     {
         isUndoingCommand = true;
-        allCommandsStored[allCommandsStored.Count -1].Undo();
-        allCommandsStored.RemoveAt(allCommandsStored.Count -1);
+        allCommandsStored[commandIndex].Undo();
 
+        commandIndex--;
+        if(deleteOnUndo)
+        {
+            allCommandsStored.RemoveAt(allCommandsStored.Count -1);
+            action_Buttons_UI_Manager.RemoveLastAction();
+        }
+
+
+        action_Buttons_UI_Manager.MoveHightlightToButton(commandIndex);
+        yield return new WaitForSeconds(1.1f);
         SetUndoButtonState();
         SetPlayButtonState();
-
-        action_Buttons_UI_Manager.RemoveLastAction();
-
-        yield return new WaitForSeconds(1.1f);
+        SetRedoButtonState();
 
         isUndoingCommand = false;
     }
 
+    private IEnumerator MoveNextCommand()
+    {
+        redoButton.interactable = false;
+
+        commandIndex++;
+        allCommandsStored[commandIndex].Execute();
+        action_Buttons_UI_Manager.MoveHightlightToButton(commandIndex);
+        yield return new WaitForSeconds(1.1f);
+        SetRedoButtonState();
+        SetUndoButtonState();
+    }
+
     private IEnumerator CommandsReplay()
     {
-        for(int i = 0; i< allCommandsStored.Count;i++)
+        commandIndex = commandIndex == -1 ? 0 : commandIndex;
+        int startindex = deleteOnUndo ? 0 : commandIndex;
+        for(int i = startindex; i< allCommandsStored.Count;i++)
         {
+            if(commandIndex != -1 && executingFirstCommand)
+            {
+                executingFirstCommand = false;
+                i++;
+            }
+            commandIndex = i;
             allCommandsStored[i].Execute();
             action_Buttons_UI_Manager.MoveHightlightToButton(i);
             yield return new WaitForSeconds(1.1f);
         }
+
+        executingFirstCommand = true;
+        SetUndoButtonState();
+        SetRedoButtonState();
     }
 
 }
