@@ -23,7 +23,6 @@ public class Camera_Controller : MonoBehaviour
     }
     void LateUpdate()
     {
-        Debug.Log(Input_Actions_Manager.instance.GetKeyPressedThisFrame("Esc"));
         transform.DOMove(player.position + followOffset,0.5f);
 
         currentZoom += Input_Actions_Manager.instance.GetCameraScroll();
