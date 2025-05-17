@@ -2,7 +2,7 @@
     "name": "Main_Actions",
     "maps": [
         {
-            "name": "Camera",
+            "name": "Mouse",
             "id": "8b75f09b-8c03-4cc0-8f9c-ccdf76161bd4",
             "actions": [
                 {
@@ -11,6 +11,15 @@
                     "id": "aec8f032-2110-431b-a893-c2dfafa6ae22",
                     "expectedControlType": "Axis",
                     "processors": "Clamp(min=-1,max=1)",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Mouse Position",
+                    "type": "Value",
+                    "id": "8d0ff269-96ef-4295-9489-a90648dfaa75",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 }
@@ -24,6 +33,65 @@
                     "processors": "",
                     "groups": "",
                     "action": "Scroll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8da396cb-d28a-444f-9d63-329b89508dd0",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "keyboard Actions",
+            "id": "7464cda9-b8aa-467c-b325-0cbe5de26053",
+            "actions": [
+                {
+                    "name": "Esc",
+                    "type": "Button",
+                    "id": "bcb7e908-6e0f-49b8-824d-2ab260e18535",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "R",
+                    "type": "Button",
+                    "id": "e570d2a4-31b5-433d-84a0-706075538a31",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2d1517ea-ccb5-469c-8bb3-9dfc04ea5ac4",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a4519c2a-9109-4d50-ac7c-2a10b3d883b1",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

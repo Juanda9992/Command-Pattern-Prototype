@@ -56,4 +56,9 @@ public class Input_Actions_Manager : MonoBehaviour
 
         return MouseEdgePosition.None;
     }
+
+    public bool GetKeyPressedThisFrame(string keyName)
+    {
+        return inputActions.FindActionMap("Keyboard Actions").FindAction(keyName).WasPressedThisFrame();
+    }
 }
