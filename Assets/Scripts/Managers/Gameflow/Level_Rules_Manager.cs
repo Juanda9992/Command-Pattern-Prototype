@@ -12,5 +12,6 @@ public class Level_Rules_Manager : MonoBehaviour
     public void LoadRules()
     {
         playerTransform.position = level_Rules.playerPosition;
+        playerTransform.rotation = Quaternion.Euler(0, level_Rules.playerRotation, 0);
     }
 }
