@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 
 public class Input_Handler : MonoBehaviour
 {
+    public static Action<int> OnCommandListChanged;
     [SerializeField] private Player_Movement player_controller;
     [SerializeField] private Action_Buttons_UI_Manager action_Buttons_UI_Manager;
     public static Input_Handler Instance { get; private set; }
@@ -19,6 +21,7 @@ public class Input_Handler : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button redoButton;
     [SerializeField] private Button undoButton;
+
 
     private bool executingFirstCommand;
 
@@ -69,6 +72,8 @@ public class Input_Handler : MonoBehaviour
 
         SetUndoButtonState();
         SetPlayButtonState();
+
+        OnCommandListChanged?.Invoke(allCommandsStored.Count);
     }
 
     public Player_Movement GetPlayer()
@@ -127,6 +132,7 @@ public class Input_Handler : MonoBehaviour
         SetUndoButtonState();
         SetPlayButtonState();
         SetRedoButtonState();
+        OnCommandListChanged?.Invoke(allCommandsStored.Count);
 
         isUndoingCommand = false;
     }

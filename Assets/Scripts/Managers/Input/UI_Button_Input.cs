@@ -14,24 +14,34 @@ public class UI_Button_Input : MonoBehaviour
         actionButton = GetComponent<Button>();
 
         actionButton.onClick.AddListener(ExecuteAction);
+
+        Input_Handler.OnCommandListChanged += SetButtonState;
+    }
+
+    private void SetButtonState(int elementsInCommandList)
+    {
+        if (Level_Rules_Manager.GetActiveLevelRules().maxBlockLimit > 0)
+        {
+            actionButton.interactable = Level_Rules_Manager.GetActiveLevelRules().maxBlockLimit > elementsInCommandList;
+        }
     }
 
     private void ExecuteAction()
     {
-        switch(buttonAction)
+        switch (buttonAction)
         {
             case ActionType.RotateLeft:
-                Input_Handler.Instance.AddCommand(new RotateLeftCommand(),ActionType.RotateLeft);
-            break;
+                Input_Handler.Instance.AddCommand(new RotateLeftCommand(), ActionType.RotateLeft);
+                break;
             case ActionType.RotateRight:
-                Input_Handler.Instance.AddCommand(new RotateRightCommand(),ActionType.RotateRight);
-            break;
+                Input_Handler.Instance.AddCommand(new RotateRightCommand(), ActionType.RotateRight);
+                break;
             case ActionType.MoveForward:
-                Input_Handler.Instance.AddCommand(new MoveForwardCommand(),ActionType.MoveForward);
-            break;
+                Input_Handler.Instance.AddCommand(new MoveForwardCommand(), ActionType.MoveForward);
+                break;
             case ActionType.Interact:
-                Input_Handler.Instance.AddCommand(new InteractCommand(),ActionType.Interact);
-            break;
+                Input_Handler.Instance.AddCommand(new InteractCommand(), ActionType.Interact);
+                break;
         }
     }
 }
