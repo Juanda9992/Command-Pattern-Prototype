@@ -2082,14 +2082,16 @@ MonoBehaviour:
     rotateLeftButton: 1
     rotateTightButton: 1
     interactButton: 1
-    maxBlockLimit: -1
+    maxBlockLimit: 2
     playerRotation: 0
     playerPosition: {x: 2, y: 1, z: 2}
+    cameraZoom: 12
   playerTransform: {fileID: 1555012624}
   leftButton: {fileID: 1361222240}
   rightButton: {fileID: 1803187530}
   moveButton: {fileID: 695291928}
   interactButton: {fileID: 2124065131}
+  camera_Controller: {fileID: 963194229}
 --- !u!1 &1273263135
 GameObject:
   m_ObjectHideFlags: 0

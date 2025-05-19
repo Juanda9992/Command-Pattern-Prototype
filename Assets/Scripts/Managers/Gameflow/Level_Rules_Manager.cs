@@ -12,6 +12,7 @@ public class Level_Rules_Manager : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
     [SerializeField] private GameObject leftButton, rightButton, moveButton, interactButton;
+    [SerializeField] private Camera_Controller camera_Controller;
 
     public void LoadRules()
     {
@@ -24,6 +25,8 @@ public class Level_Rules_Manager : MonoBehaviour
         rightButton.SetActive(level_Rules.rotateTightButton);
         moveButton.SetActive(level_Rules.moveNextButton);
         interactButton.SetActive(level_Rules.interactButton);
+
+        camera_Controller.SetCameraZoom(level_Rules.cameraZoom);
     }
 
     public static Level_Rules_Data GetActiveLevelRules()

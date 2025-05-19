@@ -19,7 +19,11 @@ public class Camera_Controller : MonoBehaviour
     {
         mainCamera = GetComponent<Camera>();
         followOffset = defaultOffset;
-        currentZoom = mainCamera.orthographicSize;
+    }
+
+    public void SetCameraZoom(int newZoom)
+    {
+        currentZoom = newZoom;
     }
     void LateUpdate()
     {
@@ -35,7 +39,6 @@ public class Camera_Controller : MonoBehaviour
 
     private void PanCamera()
     {
-        Vector2 movingVectorreference = defaultOffset;
         switch (Input_Actions_Manager.instance.GetMouseBoundsPos())
         {
             case Input_Actions_Manager.MouseEdgePosition.Bottom:
