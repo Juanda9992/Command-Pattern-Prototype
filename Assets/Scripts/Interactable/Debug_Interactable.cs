@@ -6,6 +6,7 @@ public class Debug_Interactable : Interactable
 {
     public override void Interact()
     {
+        interactEvent?.Invoke();
         Debug.Log("Interacted with debug cube");
     }
 
