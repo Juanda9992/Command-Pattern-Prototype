@@ -11,6 +11,7 @@ public class Level_Loader_Manager : MonoBehaviour
     {
         instance = this;
         SceneManager.sceneLoaded += (x, y) => OnSceneLoaded?.Invoke();
+        Player_Movement.OnPlayerHitWrongSurface += RestartLevel;
     }
 
     public void RestartLevel()

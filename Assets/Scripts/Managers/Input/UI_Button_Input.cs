@@ -44,6 +44,11 @@ public class UI_Button_Input : MonoBehaviour
                 break;
         }
     }
+
+    void OnDisable()
+    {
+        Input_Handler.OnCommandListChanged -= SetButtonState;
+    }
 }
 
 public enum ActionType
