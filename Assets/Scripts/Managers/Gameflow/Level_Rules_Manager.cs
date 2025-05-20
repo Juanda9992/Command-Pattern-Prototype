@@ -17,7 +17,8 @@ public class Level_Rules_Manager : MonoBehaviour
     public void LoadRules()
     {
         activeLevelRules = level_Rules;
-        playerTransform.position = level_Rules.playerPosition;
+
+        SetPlayerInitialPosition();
         playerTransform.rotation = Quaternion.Euler(0, level_Rules.playerRotation, 0);
 
 
@@ -27,6 +28,11 @@ public class Level_Rules_Manager : MonoBehaviour
         interactButton.SetActive(level_Rules.interactButton);
 
         camera_Controller.SetCameraZoom(level_Rules.cameraZoom);
+    }
+
+    private void SetPlayerInitialPosition()
+    {
+        playerTransform.position = GameObject.FindWithTag("Starting_Point").transform.position + Vector3.up;
     }
 
     public static Level_Rules_Data GetActiveLevelRules()
