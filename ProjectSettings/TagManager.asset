@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Restart
+  - Starting_Point
+  - End_Point
   layers:
   - Default
   - TransparentFX
