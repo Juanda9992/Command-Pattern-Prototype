@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5688f0476c86e5419b286d83be87220, type: 3}
+  m_Name: Level_1
+  m_EditorClassIdentifier: 
+  levelSummary: Basic level with 6 forward steps
+  levelJsonName: level_1
+  moveNextButton: 1
+  rotateLeftButton: 0
+  rotateTightButton: 0
+  interactButton: 0
+  maxBlockLimit: 5
+  playerRotation: 180
+  cameraZoom: 6

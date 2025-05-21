@@ -7,6 +7,7 @@ public class Player_Movement : MonoBehaviour
 {
 
     public static event Action OnPlayerHitWrongSurface;
+    public static event Action OnPlayerWin;
     [SerializeField] private Transform interactOrigin;
     [SerializeField] private Transform groundCheckingTransform;
     [SerializeField] private float moveTime;
@@ -61,6 +62,7 @@ public class Player_Movement : MonoBehaviour
         Collider[] groundPos = Physics.OverlapSphere(groundCheckingTransform.position, 0.1f);
         if (groundPos[0].CompareTag("End_Point"))
         {
+            OnPlayerWin?.Invoke();
             Debug.Log("Player ended");
         }
     }
