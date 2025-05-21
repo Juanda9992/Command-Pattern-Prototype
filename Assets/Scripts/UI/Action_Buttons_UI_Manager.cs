@@ -42,4 +42,14 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
             highlightButton.SetActive(false);
         }
     }
+
+    public void ResetToDefault()
+    {
+        for (int i = 0; i < allButtonsStored.Count; i++)
+        {
+            Destroy(allButtonsStored[i]);
+        }
+        allButtonsStored.Clear();
+        highlightButton.SetActive(false);
+    }
 }

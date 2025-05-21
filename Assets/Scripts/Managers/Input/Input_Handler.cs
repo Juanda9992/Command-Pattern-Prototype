@@ -15,7 +15,7 @@ public class Input_Handler : MonoBehaviour
     public bool isUndoingCommand = false;
 
     public List<Command> allCommandsStored = new List<Command>();
-    [SerializeField] private bool deleteOnUndo; 
+    [SerializeField] private bool deleteOnUndo;
 
     [Header("UI Settings")]
     [SerializeField] private Button playButton;
@@ -25,7 +25,7 @@ public class Input_Handler : MonoBehaviour
 
     private bool executingFirstCommand;
 
-    private int commandIndex= -1;
+    private int commandIndex = -1;
     void Awake()
     {
         Instance = this;
@@ -49,19 +49,19 @@ public class Input_Handler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            AddCommand(rotateLeft,ActionType.RotateLeft);
+            AddCommand(rotateLeft, ActionType.RotateLeft);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            AddCommand(rotateRight,ActionType.RotateRight);
+            AddCommand(rotateRight, ActionType.RotateRight);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            AddCommand(interact,ActionType.Interact);
+            AddCommand(interact, ActionType.Interact);
         }
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            AddCommand(moveForward,ActionType.MoveForward);
+            AddCommand(moveForward, ActionType.MoveForward);
         }
     }
 
@@ -89,12 +89,12 @@ public class Input_Handler : MonoBehaviour
 
     private void SetPlayButtonState()
     {
-        playButton.interactable = allCommandsStored.Count >0;
+        playButton.interactable = allCommandsStored.Count > 0;
     }
 
     private void SetRedoButtonState()
     {
-        redoButton.interactable = allCommandsStored.Count > 0 && commandIndex < allCommandsStored.Count -1;
+        redoButton.interactable = allCommandsStored.Count > 0 && commandIndex < allCommandsStored.Count - 1;
     }
 
     [ContextMenu("Test Replay")]
@@ -120,9 +120,9 @@ public class Input_Handler : MonoBehaviour
         allCommandsStored[commandIndex].Undo();
 
         commandIndex--;
-        if(deleteOnUndo)
+        if (deleteOnUndo)
         {
-            allCommandsStored.RemoveAt(allCommandsStored.Count -1);
+            allCommandsStored.RemoveAt(allCommandsStored.Count - 1);
             action_Buttons_UI_Manager.RemoveLastAction();
         }
 
@@ -153,9 +153,9 @@ public class Input_Handler : MonoBehaviour
     {
         commandIndex = commandIndex == -1 ? 0 : commandIndex;
         int startindex = deleteOnUndo ? 0 : commandIndex;
-        for(int i = startindex; i< allCommandsStored.Count;i++)
+        for (int i = startindex; i < allCommandsStored.Count; i++)
         {
-            if(commandIndex != -1 && executingFirstCommand)
+            if (commandIndex != -1 && executingFirstCommand)
             {
                 executingFirstCommand = false;
                 i++;
@@ -170,6 +170,28 @@ public class Input_Handler : MonoBehaviour
         player_controller.CheckForCompletion();
         SetUndoButtonState();
         SetRedoButtonState();
+    }
+
+    public void ResetToDefault()
+    {
+        action_Buttons_UI_Manager.ResetToDefault();
+        allCommandsStored.Clear();
+        OnCommandListChanged?.Invoke(allCommandsStored.Count);
+        commandIndex = -1;
+
+        SetPlayButtonState();
+        SetUndoButtonState();
+        SetRedoButtonState();
+    }
+
+    void OnEnable()
+    {
+        Level_Loader_Manager.OnRestartLevel += ResetToDefault;
+    }
+
+    void OnDisable()
+    {
+        Level_Loader_Manager.OnRestartLevel -= ResetToDefault;
     }
 
 }

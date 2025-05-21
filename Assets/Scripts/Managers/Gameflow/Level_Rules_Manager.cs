@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Level_Rules_Manager : MonoBehaviour
 {
-    public int level = 0;
     private static Level_Rules_Data activeLevelRules;
     [SerializeField] private Level_Rules_Container level_Rules_Container;
 
@@ -15,10 +14,8 @@ public class Level_Rules_Manager : MonoBehaviour
     [SerializeField] private GameObject leftButton, rightButton, moveButton, interactButton;
     [SerializeField] private Camera_Controller camera_Controller;
 
-    public void LoadRules()
+    public void LoadRules(int level)
     {
-        activeLevelRules = level_Rules_Container.GetLevelRules(level);
-
         SetPlayerInitialPosition();
         playerTransform.rotation = Quaternion.Euler(0, activeLevelRules.playerRotation, 0);
 
@@ -29,6 +26,11 @@ public class Level_Rules_Manager : MonoBehaviour
         interactButton.SetActive(activeLevelRules.interactButton);
 
         camera_Controller.SetCameraZoom(activeLevelRules.cameraZoom);
+    }
+
+    public void SetActiveLevelRules(int index)
+    {
+        activeLevelRules = level_Rules_Container.GetLevelRules(index);
     }
 
     private void SetPlayerInitialPosition()

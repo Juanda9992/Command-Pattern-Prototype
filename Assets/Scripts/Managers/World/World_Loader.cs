@@ -2,12 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using TWC;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class World_Loader : MonoBehaviour
 {
     [SerializeField] private string worldName;
 
     [SerializeField] private TileWorldCreator tileWorldCreator;
+
+    [SerializeField] private UnityEvent OnWorldBuilded;
+
+    void Awake()
+    {
+        tileWorldCreator.OnBuildLayersComplete += delegate { OnWorldBuilded?.Invoke(); };
+    }
 
     [ContextMenu("Save")]
     public void SaveMap()
@@ -38,5 +46,12 @@ public class World_Loader : MonoBehaviour
         {
             Debug.LogWarning("There is not file for world " + worldName);
         }
+    }
+
+    public void SetWorldName()
+    {
+        worldName = Level_Rules_Manager.GetActiveLevelRules().levelJsonName;
+
+        LoadMap();
     }
 }
