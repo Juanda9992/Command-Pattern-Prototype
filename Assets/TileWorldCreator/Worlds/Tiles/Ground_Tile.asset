@@ -33,7 +33,7 @@ MonoBehaviour:
   exteriorCornerTileRotationOffset: {x: 0, y: 0, z: 0}
   interiorCornerTileRotationOffset: {x: 0, y: 0, z: 0}
   fillTileRotationOffset: {x: 0, y: 0, z: 0}
-  edgeTileScalingOffset: {x: 0, y: 0, z: 0}
-  exteriorCornerScalingOffset: {x: 0, y: 0, z: 0}
-  interiorCornerScalingOffset: {x: 0, y: 0, z: 0}
-  fillTileScalingOffset: {x: 0, y: 0, z: 0}
+  edgeTileScalingOffset: {x: 0, y: 1, z: 0}
+  exteriorCornerScalingOffset: {x: 0, y: 1, z: 0}
+  interiorCornerScalingOffset: {x: 0, y: 1, z: 0}
+  fillTileScalingOffset: {x: 0, y: 1, z: 0}
