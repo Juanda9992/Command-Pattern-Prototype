@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using TWC;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
@@ -7,6 +8,7 @@ public class Player_Movement : MonoBehaviour
 
     public static event Action OnPlayerHitWrongSurface;
     [SerializeField] private Transform interactOrigin;
+    [SerializeField] private Transform groundCheckingTransform;
     [SerializeField] private float moveTime;
 
     [ContextMenu("Move Forward")]
@@ -51,6 +53,15 @@ public class Player_Movement : MonoBehaviour
                     interactable.Undo();
                 }
             }
+        }
+    }
+
+    public void CheckForCompletion()
+    {
+        Collider[] groundPos = Physics.OverlapSphere(groundCheckingTransform.position, 0.1f);
+        if (groundPos[0].CompareTag("End_Point"))
+        {
+            Debug.Log("Player ended");
         }
     }
 

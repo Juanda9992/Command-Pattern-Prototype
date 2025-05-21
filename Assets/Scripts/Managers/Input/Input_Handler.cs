@@ -167,6 +167,7 @@ public class Input_Handler : MonoBehaviour
         }
 
         executingFirstCommand = true;
+        player_controller.CheckForCompletion();
         SetUndoButtonState();
         SetRedoButtonState();
     }
