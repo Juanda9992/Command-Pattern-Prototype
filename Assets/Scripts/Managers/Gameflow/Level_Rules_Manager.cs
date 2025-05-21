@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class Level_Rules_Manager : MonoBehaviour
 {
+    public int level = 0;
     private static Level_Rules_Data activeLevelRules;
-    [SerializeField] private Level_Rules_Data level_Rules;
+    [SerializeField] private Level_Rules_Container level_Rules_Container;
 
     [SerializeField] private Transform playerTransform;
 
@@ -16,23 +17,30 @@ public class Level_Rules_Manager : MonoBehaviour
 
     public void LoadRules()
     {
-        activeLevelRules = level_Rules;
+        activeLevelRules = level_Rules_Container.GetLevelRules(level);
 
         SetPlayerInitialPosition();
-        playerTransform.rotation = Quaternion.Euler(0, level_Rules.playerRotation, 0);
+        playerTransform.rotation = Quaternion.Euler(0, activeLevelRules.playerRotation, 0);
 
 
-        leftButton.SetActive(level_Rules.rotateLeftButton);
-        rightButton.SetActive(level_Rules.rotateTightButton);
-        moveButton.SetActive(level_Rules.moveNextButton);
-        interactButton.SetActive(level_Rules.interactButton);
+        leftButton.SetActive(activeLevelRules.rotateLeftButton);
+        rightButton.SetActive(activeLevelRules.rotateTightButton);
+        moveButton.SetActive(activeLevelRules.moveNextButton);
+        interactButton.SetActive(activeLevelRules.interactButton);
 
-        camera_Controller.SetCameraZoom(level_Rules.cameraZoom);
+        camera_Controller.SetCameraZoom(activeLevelRules.cameraZoom);
     }
 
     private void SetPlayerInitialPosition()
     {
-        playerTransform.position = GameObject.FindWithTag("Starting_Point").transform.position + Vector3.up;
+        try
+        {
+            playerTransform.position = GameObject.FindWithTag("Starting_Point").transform.position + Vector3.up;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
     }
 
     public static Level_Rules_Data GetActiveLevelRules()

@@ -2478,7 +2478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98fa3fabc447014a82a0170afaf02fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level_Rules: {fileID: 0}
+  level: 0
+  level_Rules_Container: {fileID: 11400000, guid: 61da4f1b54408bb46b0a5a91da32fc19, type: 2}
   playerTransform: {fileID: 1555012624}
   leftButton: {fileID: 1361222240}
   rightButton: {fileID: 1803187530}
