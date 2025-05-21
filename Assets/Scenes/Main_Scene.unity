@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ffb50d468f8c44592651be8cbfc8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldName: level_1
+  worldName: level_0
   tileWorldCreator: {fileID: 1870675481}
 --- !u!1 &242845872
 GameObject:
@@ -2478,14 +2478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98fa3fabc447014a82a0170afaf02fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level_Rules:
-    moveNextButton: 1
-    rotateLeftButton: 0
-    rotateTightButton: 0
-    interactButton: 0
-    maxBlockLimit: 5
-    playerRotation: 180
-    cameraZoom: 6
+  level_Rules: {fileID: 0}
   playerTransform: {fileID: 1555012624}
   leftButton: {fileID: 1361222240}
   rightButton: {fileID: 1803187530}
