@@ -174,6 +174,7 @@ public class Input_Handler : MonoBehaviour
 
     public void ResetToDefault()
     {
+        executingFirstCommand = false;
         action_Buttons_UI_Manager.ResetToDefault();
         allCommandsStored.Clear();
         OnCommandListChanged?.Invoke(allCommandsStored.Count);
