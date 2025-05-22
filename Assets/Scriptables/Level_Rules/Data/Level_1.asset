@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5688f0476c86e5419b286d83be87220, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
-  levelSummary: Basic level with 6 forward steps
+  levelSummary: Basic turn to the left
   levelJsonName: level_1
   moveNextButton: 1
-  rotateLeftButton: 0
+  rotateLeftButton: 1
   rotateTightButton: 0
   interactButton: 0
-  maxBlockLimit: 5
+  maxBlockLimit: 6
   playerRotation: 180
   cameraZoom: 6
