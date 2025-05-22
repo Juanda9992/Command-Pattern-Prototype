@@ -185,6 +185,13 @@ public class Input_Handler : MonoBehaviour
         SetRedoButtonState();
     }
 
+    public void DeleteCommandAtPosition(int index)
+    {
+        allCommandsStored.RemoveAt(index);
+
+        OnCommandListChanged?.Invoke(allCommandsStored.Count);
+    }
+
     void OnEnable()
     {
         Level_Loader_Manager.OnRestartLevel += ResetToDefault;

@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d348de3f0739d4192783640c17bb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 2
   level_Rules_Manager: {fileID: 1204721424}
   world_Loader: {fileID: 85497647}
   winCanvas: {fileID: 1606230665}
@@ -1994,6 +1994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf09c189463f4c419b967de928e86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionIndex: 0
   iconImage: {fileID: 1073689329}
 --- !u!1 &755852536
 GameObject:

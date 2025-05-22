@@ -16,7 +16,7 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
     {
         GameObject currentButton = Instantiate(buttonsPrefab, buttonsParent);
         currentButton.SetActive(true);
-        currentButton.GetComponent<Action_Container_Button>().SetActionType(actionType);
+        currentButton.GetComponent<Action_Container_Button>().SetActionType(actionType,allButtonsStored.Count);
 
         allButtonsStored.Add(currentButton);
     }

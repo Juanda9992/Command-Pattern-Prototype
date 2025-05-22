@@ -6,13 +6,28 @@ using UnityEngine.UI;
 
 public class Action_Container_Button : MonoBehaviour
 {
+    [SerializeField]private int actionIndex;
     [SerializeField] private Image iconImage;
+    [SerializeField] private Button actionButton;
     private ActionType thisAction;
 
-    public void SetActionType(ActionType actionType)
+    void Awake()
     {
+        actionButton.onClick.AddListener(DeleteCommandFromList);   
+    }
+    public void SetActionType(ActionType actionType, int buttonIndex)
+    {
+        actionIndex = buttonIndex;
         thisAction = actionType;
         SetButtonUI();
+    }
+
+    private void DeleteCommandFromList()
+    {
+        Debug.Log("Deleted " + actionIndex);
+        Input_Handler.Instance.DeleteCommandAtPosition(actionIndex);
+
+        Destroy(gameObject);
     }
 
     private void SetButtonUI()
@@ -34,6 +49,6 @@ public class Action_Container_Button : MonoBehaviour
                 iconImage.sprite = Asset_Database_Manager.instance.GetButtonSprite(3);
                 break;
         }
-        
+
     }
 }
