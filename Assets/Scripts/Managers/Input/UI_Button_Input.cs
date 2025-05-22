@@ -14,8 +14,6 @@ public class UI_Button_Input : MonoBehaviour
         actionButton = GetComponent<Button>();
 
         actionButton.onClick.AddListener(ExecuteAction);
-
-        Input_Handler.OnCommandListChanged += SetButtonState;
     }
 
     private void SetButtonState(int elementsInCommandList)
@@ -43,6 +41,11 @@ public class UI_Button_Input : MonoBehaviour
                 Input_Handler.Instance.AddCommand(new InteractCommand(), ActionType.Interact);
                 break;
         }
+    }
+
+    void OnEnable()
+    {
+        Input_Handler.OnCommandListChanged += SetButtonState;
     }
 
     void OnDisable()
