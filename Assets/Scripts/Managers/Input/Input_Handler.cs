@@ -128,7 +128,7 @@ public class Input_Handler : MonoBehaviour
 
 
         action_Buttons_UI_Manager.MoveHightlightToButton(commandIndex);
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(Speed_Manager.instance._globalSpeed + (Speed_Manager.instance._globalSpeed / 10));
         SetUndoButtonState();
         SetPlayButtonState();
         SetRedoButtonState();
@@ -144,7 +144,7 @@ public class Input_Handler : MonoBehaviour
         commandIndex++;
         allCommandsStored[commandIndex].Execute();
         action_Buttons_UI_Manager.MoveHightlightToButton(commandIndex);
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(Speed_Manager.instance._globalSpeed + (Speed_Manager.instance._globalSpeed / 10));
         SetRedoButtonState();
         SetUndoButtonState();
     }
@@ -163,7 +163,7 @@ public class Input_Handler : MonoBehaviour
             commandIndex = i;
             allCommandsStored[i].Execute();
             action_Buttons_UI_Manager.MoveHightlightToButton(i);
-            yield return new WaitForSeconds(1.1f);
+            yield return new WaitForSeconds(Speed_Manager.instance._globalSpeed + (Speed_Manager.instance._globalSpeed / 10));
         }
 
         executingFirstCommand = true;

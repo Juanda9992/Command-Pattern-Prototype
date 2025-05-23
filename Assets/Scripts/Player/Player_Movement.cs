@@ -10,30 +10,29 @@ public class Player_Movement : MonoBehaviour
     public static event Action OnPlayerWin;
     [SerializeField] private Transform interactOrigin;
     [SerializeField] private Transform groundCheckingTransform;
-    [SerializeField] private float moveTime;
 
     [ContextMenu("Move Forward")]
     public void MoveForward()
     {
-        transform.DOLocalMove(transform.position + transform.forward, moveTime);
+        transform.DOLocalMove(transform.position + transform.forward, Speed_Manager.instance._globalSpeed);
     }
 
     [ContextMenu("Move Backward")]
     public void MoveBackward()
     {
-        transform.DOLocalMove(transform.position - transform.forward, moveTime);
+        transform.DOLocalMove(transform.position - transform.forward, Speed_Manager.instance._globalSpeed);
     }
 
     [ContextMenu("Rotate Left")]
     public void RotateLeft()
     {
-        transform.DOLocalRotate(Vector3.up * -90, moveTime, RotateMode.WorldAxisAdd);
+        transform.DOLocalRotate(Vector3.up * -90, Speed_Manager.instance._globalSpeed, RotateMode.WorldAxisAdd);
     }
 
     [ContextMenu("Rotate Right")]
     public void RotateRight()
     {
-        transform.DOLocalRotate(Vector3.up * 90, moveTime, RotateMode.WorldAxisAdd);
+        transform.DOLocalRotate(Vector3.up * 90, Speed_Manager.instance._globalSpeed, RotateMode.WorldAxisAdd);
     }
 
     [ContextMenu("Interact")]
