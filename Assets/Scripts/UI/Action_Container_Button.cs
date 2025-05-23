@@ -17,9 +17,14 @@ public class Action_Container_Button : MonoBehaviour
     }
     public void SetActionType(ActionType actionType, int buttonIndex)
     {
-        actionIndex = buttonIndex;
+        SetButtonIndex(buttonIndex);
         thisAction = actionType;
         SetButtonUI();
+    }
+
+    public void SetButtonIndex(int newIndex)
+    {
+        actionIndex = newIndex;
     }
 
     private void DeleteCommandFromList()

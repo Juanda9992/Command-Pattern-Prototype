@@ -189,6 +189,7 @@ public class Input_Handler : MonoBehaviour
     {
         allCommandsStored.RemoveAt(index);
 
+        action_Buttons_UI_Manager.RemoveActionAt(index);
         OnCommandListChanged?.Invoke(allCommandsStored.Count);
     }
 
