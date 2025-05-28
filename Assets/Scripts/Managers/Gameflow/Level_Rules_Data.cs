@@ -11,6 +11,5 @@ public class Level_Rules_Data : ScriptableObject
     [Range(-1, 15)] public int maxBlockLimit = -1;
     public int playerRotation;
     [Range(5, 12)] public int cameraZoom = 6;
-    
-    [SerializeField] private Custom_Loading_Data custom_Loading_Data;
+    public Custom_Loading_Data custom_Loading_Data;
 }

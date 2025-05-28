@@ -14,7 +14,7 @@ public class World_Loader : MonoBehaviour
 
     void Awake()
     {
-        tileWorldCreator.OnBuildLayersComplete += delegate { OnWorldBuilded?.Invoke(); };
+        tileWorldCreator.OnBuildLayersComplete += delegate { OnWorldBuilded?.Invoke();};
     }
 
     [ContextMenu("Save")]
@@ -41,10 +41,21 @@ public class World_Loader : MonoBehaviour
 
             tileWorldCreator.ExecuteAllBlueprintLayers();
             tileWorldCreator.ExecuteAllBuildLayers(true);
+
+            ExecuteCustomLoadingData();
         }
         else
         {
             Debug.LogWarning("There is not file for world " + worldName);
+        }
+    }
+
+    private void ExecuteCustomLoadingData()
+    {
+        if (Level_Rules_Manager.GetActiveLevelRules().custom_Loading_Data != null)
+        {
+            Custom_Loading_Data data = Level_Rules_Manager.GetActiveLevelRules().custom_Loading_Data;
+            Debug.Log("Custom Data exist with" + data.customInstructions.Length + " instructions");
         }
     }
 

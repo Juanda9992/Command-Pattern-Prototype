@@ -35,14 +35,7 @@ public class Level_Rules_Manager : MonoBehaviour
 
     private void SetPlayerInitialPosition()
     {
-        try
-        {
-            playerTransform.position = GameObject.FindWithTag("Starting_Point").transform.position + Vector3.up;
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e);
-        }
+        playerTransform.position = GameObject.FindWithTag("Starting_Point").transform.position + Vector3.up;
     }
 
     public static Level_Rules_Data GetActiveLevelRules()
