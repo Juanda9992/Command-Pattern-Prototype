@@ -50,7 +50,7 @@ public class World_Loader : MonoBehaviour
 
     public void SetWorldName()
     {
-        worldName = Level_Rules_Manager.GetActiveLevelRules().levelJsonName;
+        worldName = Level_Rules_Manager.GetActiveLevelRules().name.ToLower();
 
         LoadMap();
     }
