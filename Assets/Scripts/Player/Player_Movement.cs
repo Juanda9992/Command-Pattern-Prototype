@@ -59,10 +59,13 @@ public class Player_Movement : MonoBehaviour
     public void CheckForCompletion()
     {
         Collider[] groundPos = Physics.OverlapSphere(groundCheckingTransform.position, 0.1f);
-        if (groundPos[0].CompareTag("End_Point"))
+        if (groundPos.Length > 0)
         {
-            OnPlayerWin?.Invoke();
-            Debug.Log("Player ended");
+            if (groundPos[0].CompareTag("End_Point"))
+            {
+                OnPlayerWin?.Invoke();
+                Debug.Log("Player ended");
+            }
         }
     }
 
