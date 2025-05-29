@@ -9,6 +9,7 @@ public class World_Loader : MonoBehaviour
     [SerializeField] private string worldName;
 
     [SerializeField] private TileWorldCreator tileWorldCreator;
+    [SerializeField] private Custom_Data_Loader custom_Data_Loader;
 
     [SerializeField] private UnityEvent OnWorldBuilded;
 
@@ -54,8 +55,7 @@ public class World_Loader : MonoBehaviour
     {
         if (Level_Rules_Manager.GetActiveLevelRules().custom_Loading_Data != null)
         {
-            Custom_Loading_Data data = Level_Rules_Manager.GetActiveLevelRules().custom_Loading_Data;
-            Debug.Log("Custom Data exist with" + data.customInstructions.Length + " instructions");
+            custom_Data_Loader.SetCustomLevelData(Level_Rules_Manager.GetActiveLevelRules().custom_Loading_Data);
         }
     }
 
