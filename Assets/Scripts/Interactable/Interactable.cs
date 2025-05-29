@@ -8,8 +8,13 @@ public class Interactable : MonoBehaviour
 {
     public Action interactAction;
 
-    public void Interact()
+    public virtual void Interact()
     {
         interactAction?.Invoke();
+    }
+
+    public virtual void Undo()
+    {
+
     }
 }

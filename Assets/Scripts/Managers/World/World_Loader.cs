@@ -15,7 +15,11 @@ public class World_Loader : MonoBehaviour
 
     void Awake()
     {
-        tileWorldCreator.OnBuildLayersComplete += delegate { OnWorldBuilded?.Invoke();};
+        tileWorldCreator.OnBuildLayersComplete += delegate
+        {
+            OnWorldBuilded?.Invoke();
+            ExecuteCustomLoadingData();
+        };
     }
 
     [ContextMenu("Save")]
@@ -42,8 +46,6 @@ public class World_Loader : MonoBehaviour
 
             tileWorldCreator.ExecuteAllBlueprintLayers();
             tileWorldCreator.ExecuteAllBuildLayers(true);
-
-            ExecuteCustomLoadingData();
         }
         else
         {

@@ -50,7 +50,7 @@ public class Player_Movement : MonoBehaviour
                 }
                 else
                 {
-                    //interactable.Undo();
+                    interactable.Undo();
                 }
             }
         }

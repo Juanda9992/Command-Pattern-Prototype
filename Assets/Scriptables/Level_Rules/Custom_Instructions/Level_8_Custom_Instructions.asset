@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4517b3a646bbcc47b2c259d744b1b91, type: 3}
-  m_Name: Level_x_Custom_Instructions
+  m_Name: Level_8_Custom_Instructions
   m_EditorClassIdentifier: 
   customInstructions:
   - customObject: {fileID: 9076206046479106382, guid: 04df8715972dcc9458845ff4e5bc7703, type: 3}
-    customObjectPos: {x: 4.5, y: 1, z: 0.5}
+    customObjectPos: {x: 4.5, y: 1, z: 1.5}
     events:
     - eventType: 1
       parameters: Hola amigos
+    - eventType: 2
+      parameters: 
+  - customObject: {fileID: 8334863684352730649, guid: 70939c641cb640147bb51702f8d2ccf1, type: 3}
+    customObjectPos: {x: 6.5, y: 1, z: 0.5}
+    events: []
+  endingPlatform: 1

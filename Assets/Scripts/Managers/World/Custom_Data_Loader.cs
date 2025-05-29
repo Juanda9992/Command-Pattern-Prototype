@@ -18,6 +18,12 @@ public class Custom_Data_Loader : MonoBehaviour
             ExecuteAction(instruction, currentObject);
         }
 
+        if (!data.endingPlatform)
+        {
+            StartCoroutine(nameof(DisableEndingPoint));
+        }
+
+
     }
     private void ExecuteAction(Custom_Loading_Instruction instruction, GameObject logicObject)
     {
@@ -40,5 +46,13 @@ public class Custom_Data_Loader : MonoBehaviour
             }
 
         }
+    }
+
+    private IEnumerator DisableEndingPoint()
+    {
+        yield return new WaitForEndOfFrame();
+        GameObject go = GameObject.FindWithTag("End_Point");
+        go.SetActive(false);
+        Debug.Log(go);
     }
 }

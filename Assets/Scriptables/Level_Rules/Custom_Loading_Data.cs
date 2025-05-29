@@ -4,6 +4,7 @@ using UnityEngine;
 public class Custom_Loading_Data : ScriptableObject
 {
     public Custom_Loading_Instruction[] customInstructions;
+    public bool endingPlatform = true;
 }
 
 [System.Serializable]

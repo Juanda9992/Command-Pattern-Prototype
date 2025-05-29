@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5688f0476c86e5419b286d83be87220, type: 3}
-  m_Name: Level_7
+  m_Name: Level_8
   m_EditorClassIdentifier: 
   levelSummary: Interactable
   moveNextButton: 1
-  rotateLeftButton: 0
-  rotateTightButton: 0
+  rotateLeftButton: 1
+  rotateTightButton: 1
   interactButton: 1
   maxBlockLimit: 10
   playerRotation: 90
   cameraZoom: 6
-  custom_Loading_Data: {fileID: 11400000, guid: 992d0b23d454e9244a740d53f03c52f3, type: 2}
+  custom_Loading_Data: {fileID: 11400000, guid: efbce8daa9b55cd4aa126005a3ad1d6d, type: 2}
