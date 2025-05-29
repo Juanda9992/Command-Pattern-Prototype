@@ -15,11 +15,11 @@ public class Custom_Data_Loader : MonoBehaviour
             instruction = data.customInstructions[i];
             currentObject = Instantiate(instruction.customObject, instruction.customObjectPos, Quaternion.identity);
 
-            ExecuteAction(instruction,currentObject);
+            ExecuteAction(instruction, currentObject);
         }
 
     }
-    private void ExecuteAction(Custom_Loading_Instruction instruction,GameObject logicObject)
+    private void ExecuteAction(Custom_Loading_Instruction instruction, GameObject logicObject)
     {
         Custom_Event_Data data;
         Interactable interactable = logicObject.GetComponent<Interactable>();
@@ -28,10 +28,17 @@ public class Custom_Data_Loader : MonoBehaviour
 
             data = instruction.events[i];
 
-            if (data.eventType == Custom_Event_Data.EventType.Log)
+            switch (data.eventType)
             {
-                interactable.interactAction += () => { Debug.Log(data.parameters); };
+                case Custom_Event_Data.EventType.Log:
+                    string message = data.parameters;
+                    interactable.interactAction += () => { Debug.Log(message); };
+                    break;
+                case Custom_Event_Data.EventType.Winning:
+                    interactable.interactAction += () => { Level_Loader_Manager.instance.ShowWinCanvas(); };
+                    break;
             }
+
         }
     }
 }

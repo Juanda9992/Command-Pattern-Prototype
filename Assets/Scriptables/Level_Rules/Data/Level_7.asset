@@ -20,4 +20,4 @@ MonoBehaviour:
   maxBlockLimit: 10
   playerRotation: 90
   cameraZoom: 6
-  custom_Loading_Data: {fileID: 11400000, guid: 24630ff5158005a4f9ab253ec6615de9, type: 2}
+  custom_Loading_Data: {fileID: 11400000, guid: 992d0b23d454e9244a740d53f03c52f3, type: 2}

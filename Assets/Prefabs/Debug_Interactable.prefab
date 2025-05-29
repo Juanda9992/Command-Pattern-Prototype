@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4753414645178205614}
   - component: {fileID: 5859990322762121143}
   - component: {fileID: 6545782820713887178}
-  - component: {fileID: 1938012056640449694}
+  - component: {fileID: 8659682264108188632}
   m_Layer: 0
   m_Name: Debug_Interactable
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1938012056640449694
+--- !u!114 &8659682264108188632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,12 +115,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9076206046479106382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d467ead43af1c4bada6d742f1fde60, type: 3}
+  m_Script: {fileID: 11500000, guid: d354e3f64ed4d6b49beb074f09901825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  reverseEvent:
-    m_PersistentCalls:
-      m_Calls: []

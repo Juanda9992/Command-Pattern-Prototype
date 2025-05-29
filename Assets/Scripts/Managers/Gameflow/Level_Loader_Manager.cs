@@ -30,7 +30,7 @@ public class Level_Loader_Manager : MonoBehaviour
         level_Rules_Manager.LoadRules(level);
     }
 
-    private void ShowWinCanvas()
+    public void ShowWinCanvas()
     {
         winCanvas.SetActive(true);
     }

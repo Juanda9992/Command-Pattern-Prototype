@@ -17,7 +17,7 @@ public class Custom_Loading_Instruction
 [System.Serializable]
 public class Custom_Event_Data
 {
-    public enum EventType {None,Log}
+    public enum EventType {None,Log, Winning}
     public EventType eventType;
     public string parameters;
 }
