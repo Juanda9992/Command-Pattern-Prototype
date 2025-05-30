@@ -14,16 +14,19 @@ public class Player_Movement : MonoBehaviour
     [ContextMenu("Move Forward")]
     public void MoveForward()
     {
-        RaycastHit hit;
-        Ray ray = new Ray(interactOrigin.position, transform.forward);
-        if (!Physics.Raycast(ray, out hit, 0.3f))
+        Collider colliderInFront = CheckForObjectInFront();
+        Collider objInGround = CheckObjectInGround();
+
+        if (colliderInFront != null)
         {
-            transform.DOLocalMove(transform.position + transform.forward, Speed_Manager.instance._globalSpeed);
+            Debug.Log(colliderInFront.name);
+            return;
         }
-        else
+        if (objInGround == null)
         {
-            Debug.Log("Not hit someting");
+            return;
         }
+        transform.DOLocalMove(transform.position + transform.forward, Speed_Manager.instance._globalSpeed);
     }
 
     [ContextMenu("Move Backward")]
@@ -47,11 +50,10 @@ public class Player_Movement : MonoBehaviour
     [ContextMenu("Interact")]
     public void Interact(bool forwardInteraction)
     {
-        RaycastHit hit;
-        Ray ray = new Ray(interactOrigin.position, transform.forward);
-        if (Physics.Raycast(ray, out hit, 0.5f))
+        Collider objInFront = CheckForObjectInFront();
+        if (objInFront != null)
         {
-            if (hit.collider.TryGetComponent<Interactable>(out Interactable interactable))
+            if (objInFront.TryGetComponent<Interactable>(out Interactable interactable))
             {
                 if (forwardInteraction)
                 {
@@ -69,12 +71,33 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-    public void CheckForCompletion()
+    private Collider CheckForObjectInFront()
+    {
+        RaycastHit hit = new RaycastHit();
+        Ray ray = new Ray(interactOrigin.position, transform.forward);
+        if (Physics.Raycast(ray, out hit, 0.5f))
+        {
+            return hit.collider;
+        }
+        return null;
+    }
+
+    private Collider CheckObjectInGround()
     {
         Collider[] groundPos = Physics.OverlapSphere(groundCheckingTransform.position, 0.1f);
         if (groundPos.Length > 0)
         {
-            if (groundPos[0].CompareTag("End_Point"))
+            return groundPos[0];
+        }
+        return null;
+    }
+
+    public void CheckForCompletion()
+    {
+        Collider groundObj = CheckObjectInGround();
+        if (groundObj != null)
+        {
+            if (groundObj.CompareTag("End_Point"))
             {
                 OnPlayerWin?.Invoke();
                 Debug.Log("Player ended");

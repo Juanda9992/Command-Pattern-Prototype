@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSummary: Interactable
   moveNextButton: 1
-  rotateLeftButton: 0
+  rotateLeftButton: 1
   rotateTightButton: 0
   interactButton: 1
   maxBlockLimit: 10
