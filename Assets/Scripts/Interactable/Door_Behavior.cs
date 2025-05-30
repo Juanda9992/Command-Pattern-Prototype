@@ -20,14 +20,23 @@ public class Door_Behavior : Interactable
 
     public override void Interact()
     {
-        visual.transform.DOLocalMove(finalPos, Speed_Manager.instance._globalSpeed);
-        doorCollider.isTrigger = true;
-        
+        if (canInteract)
+        {
+            visual.transform.DOLocalMove(finalPos, Speed_Manager.instance._globalSpeed);
+            doorCollider.isTrigger = true;
+        }
+
     }
     public override void Undo()
     {
         visual.transform.DOLocalMove(initialPos, Speed_Manager.instance._globalSpeed);
         doorCollider.isTrigger = false;
+    }
+
+    public void RemoteInteraction()
+    {
+        visual.transform.DOLocalMove(finalPos, Speed_Manager.instance._globalSpeed);
+        doorCollider.isTrigger = true;
     }
 }
 

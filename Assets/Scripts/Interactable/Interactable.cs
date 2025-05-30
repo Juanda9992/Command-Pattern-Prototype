@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
+    public Action undoAction;
     public Action interactAction;
 
     public virtual void Interact()
@@ -15,6 +16,6 @@ public class Interactable : MonoBehaviour
 
     public virtual void Undo()
     {
-
+        undoAction?.Invoke();
     }
 }

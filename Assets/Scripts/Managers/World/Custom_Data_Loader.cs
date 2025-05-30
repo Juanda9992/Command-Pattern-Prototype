@@ -16,6 +16,8 @@ public class Custom_Data_Loader : MonoBehaviour
             currentObject = Instantiate(instruction.customObject, instruction.customObjectPos, Quaternion.identity);
 
             ExecuteAction(instruction, currentObject);
+
+            SetObjectAction(currentObject, instruction.objectData);
         }
 
         if (!data.endingPlatform)
@@ -24,6 +26,14 @@ public class Custom_Data_Loader : MonoBehaviour
         }
 
 
+    }
+
+    private void SetObjectAction(GameObject gameObject, string data)
+    {
+        if (data == "noDoorInteraction")
+        {
+            gameObject.GetComponent<Door_Behavior>().canInteract = false;
+        }
     }
     private void ExecuteAction(Custom_Loading_Instruction instruction, GameObject logicObject)
     {
@@ -42,6 +52,11 @@ public class Custom_Data_Loader : MonoBehaviour
                     break;
                 case Custom_Event_Data.EventType.Winning:
                     interactable.interactAction += () => { Level_Loader_Manager.instance.ShowWinCanvas(); };
+                    break;
+
+                case Custom_Event_Data.EventType.Door:
+                    interactable.interactAction += () => { GameObject.FindObjectOfType<Door_Behavior>().RemoteInteraction(); };
+                    interactable.undoAction += ()=>{GameObject.FindObjectOfType<Door_Behavior>().Undo(); };
                     break;
             }
 
