@@ -122,8 +122,10 @@ public class Input_Handler : MonoBehaviour
     {
         StopCoroutine(nameof(CommandsReplay));
         yield return new WaitForEndOfFrame();
+        commandIndex--;
         action_Buttons_UI_Manager.SetHightlightButtonStatus(true);
-
+        yield return new WaitForSeconds(Speed_Manager.instance._globalSpeed);
+        action_Buttons_UI_Manager.MoveHightlightToButton(commandIndex);
         SetUndoButtonState();
 
     }
