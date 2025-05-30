@@ -15,7 +15,6 @@ public class Input_Handler : MonoBehaviour
     public bool isUndoingCommand = false;
 
     public List<Command> allCommandsStored = new List<Command>();
-    [SerializeField] private bool deleteOnUndo;
 
     [Header("UI Settings")]
     [SerializeField] private Button playButton;
@@ -135,12 +134,6 @@ public class Input_Handler : MonoBehaviour
         allCommandsStored[commandIndex].Undo();
 
         commandIndex--;
-        if (deleteOnUndo)
-        {
-            allCommandsStored.RemoveAt(allCommandsStored.Count - 1);
-            action_Buttons_UI_Manager.RemoveLastAction();
-        }
-
 
         action_Buttons_UI_Manager.MoveHightlightToButton(commandIndex);
         yield return new WaitForSeconds(Speed_Manager.instance._globalSpeed + (Speed_Manager.instance._globalSpeed / 10));
@@ -166,9 +159,10 @@ public class Input_Handler : MonoBehaviour
 
     private IEnumerator CommandsReplay()
     {
+        playButton.interactable = false;
+
         commandIndex = commandIndex == -1 ? 0 : commandIndex;
-        int startindex = deleteOnUndo ? 0 : commandIndex;
-        for (int i = startindex; i < allCommandsStored.Count; i++)
+        for (int i = commandIndex; i < allCommandsStored.Count; i++)
         {
             if (commandIndex != -1 && executingFirstCommand)
             {
@@ -183,6 +177,8 @@ public class Input_Handler : MonoBehaviour
 
         executingFirstCommand = true;
         player_controller.CheckForCompletion();
+
+        SetPlayButtonState();
         SetUndoButtonState();
         SetRedoButtonState();
     }
