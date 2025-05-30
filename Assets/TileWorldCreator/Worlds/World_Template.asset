@@ -16,6 +16,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 0}
     - {fileID: 11400000, guid: 5797669d4db2242478d6fbd7065df23d, type: 2}
     - {fileID: 7364894495421605434, guid: fd1206bd8f20c5c429043e5041da464f, type: 3}
     - {fileID: 2420512958326152095, guid: 96b4ec71c41125c4a93679450b734bc9, type: 3}
@@ -564,7 +565,7 @@ MonoBehaviour:
       Data: false
     - Name: 
       Entry: 5
-      Data: true
+      Data: false
     - Name: 
       Entry: 5
       Data: false
@@ -781,7 +782,7 @@ MonoBehaviour:
       Data: 5|TWC.Actions.Paint, TileWorldCreator
     - Name: guid
       Entry: 2
-      Data: b63a125414454d97965ed0af74b48d3a
+      Data: f990ada948f146dc889eddfdbeb56507
     - Name: active
       Entry: 5
       Data: true
@@ -1321,7 +1322,7 @@ MonoBehaviour:
       Data: false
     - Name: 
       Entry: 5
-      Data: true
+      Data: false
     - Name: 
       Entry: 5
       Data: false
@@ -1494,8 +1495,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: tileWorldCreator
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: paintPreviewTexture
       Entry: 6
       Data: 
@@ -2267,7 +2268,7 @@ MonoBehaviour:
       Data: 11|TWC.Actions.Paint, TileWorldCreator
     - Name: guid
       Entry: 2
-      Data: 60ff6dc0869f4018ad1a997608435e41
+      Data: 48153aa7958f4fff9cd03537234a7f02
     - Name: active
       Entry: 5
       Data: true
@@ -2980,8 +2981,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: tileWorldCreator
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: paintPreviewTexture
       Entry: 6
       Data: 
@@ -3536,52 +3537,52 @@ MonoBehaviour:
       Data: false
     - Name: 
       Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
       Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 5
       Data: false
@@ -3753,7 +3754,7 @@ MonoBehaviour:
       Data: 17|TWC.Actions.Paint, TileWorldCreator
     - Name: guid
       Entry: 2
-      Data: 812e246c9ab7455abacbfc95e66e6e35
+      Data: 5a68a7317e664e69b238be0b9bce89ce
     - Name: active
       Entry: 5
       Data: true
@@ -4293,52 +4294,52 @@ MonoBehaviour:
       Data: false
     - Name: 
       Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
       Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 5
       Data: false
@@ -4466,8 +4467,8 @@ MonoBehaviour:
       Entry: 3
       Data: 2
     - Name: tileWorldCreator
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: paintPreviewTexture
       Entry: 6
       Data: 
@@ -4544,7 +4545,7 @@ MonoBehaviour:
       Data: 
     - Name: preset
       Entry: 10
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -4691,7 +4692,7 @@ MonoBehaviour:
       Data: false
     - Name: prefab
       Entry: 10
-      Data: 1
+      Data: 2
     - Name: instantiateChilds
       Entry: 5
       Data: false
@@ -4967,7 +4968,7 @@ MonoBehaviour:
       Data: false
     - Name: prefab
       Entry: 10
-      Data: 2
+      Data: 3
     - Name: instantiateChilds
       Entry: 5
       Data: false
@@ -5216,7 +5217,7 @@ MonoBehaviour:
       Data: 
     - Name: worldName
       Entry: 1
-      Data: TileWorldCreator_Map
+      Data: TileWorldMap
     - Name: mapWidth
       Entry: 3
       Data: 15
@@ -5246,7 +5247,7 @@ MonoBehaviour:
       Data: 0
     - Name: showSettings
       Entry: 5
-      Data: false
+      Data: true
     - Name: mapOrientation
       Entry: 3
       Data: 0
@@ -5278,7 +5279,7 @@ MonoBehaviour:
     mapResultFailed: 0
     stack:
     - actionName: Paint
-  worldName: TileWorldCreator_Map
+  worldName: TileWorldMap
   mapWidth: 15
   mapHeight: 15
   cellSize: 1
@@ -5288,5 +5289,5 @@ MonoBehaviour:
   mergePreviewTextures: 0
   useCustomClusterCelSize: 0
   customClusterCellSize: 0
-  showSettings: 0
+  showSettings: 1
   mapOrientation: 0
