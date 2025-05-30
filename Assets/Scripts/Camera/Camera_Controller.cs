@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Camera_Controller : MonoBehaviour
 {
@@ -21,24 +22,30 @@ public class Camera_Controller : MonoBehaviour
         followOffset = defaultOffset;
     }
 
+    void Start()
+    {
+        Input_Actions_Manager.instance.GetInputAction("Scroll").performed += CheckScrollInput;
+    }
+
+    private void CheckScrollInput(InputAction.CallbackContext context)
+    {
+        currentZoom += context.ReadValue<float>();
+        currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
+        mainCamera.DOOrthoSize(currentZoom, 0.4f);
+    }
+
     public void SetCameraZoom(int newZoom)
     {
-        currentZoom = newZoom;
+        mainCamera.DOOrthoSize(newZoom, 0.4f);
     }
     void LateUpdate()
     {
-        transform.DOMove(player.position + followOffset,0.5f);
-
-        currentZoom += Input_Actions_Manager.instance.GetCameraScroll();
-        currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
-
         PanCamera();
-
-        mainCamera.DOOrthoSize(currentZoom, 0.4f);
     }
 
     private void PanCamera()
     {
+        Vector3 lastOffset = followOffset;
         switch (Input_Actions_Manager.instance.GetMouseBoundsPos())
         {
             case Input_Actions_Manager.MouseEdgePosition.Bottom:
@@ -60,6 +67,11 @@ public class Camera_Controller : MonoBehaviour
             case Input_Actions_Manager.MouseEdgePosition.None:
                 followOffset = defaultOffset;
                 break;
+        }
+
+        if (lastOffset != followOffset)
+        {
+            transform.DOMove(player.position + followOffset,0.5f);
         }
     }
 }

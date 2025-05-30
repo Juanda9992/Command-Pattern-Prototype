@@ -14,7 +14,16 @@ public class Player_Movement : MonoBehaviour
     [ContextMenu("Move Forward")]
     public void MoveForward()
     {
-        transform.DOLocalMove(transform.position + transform.forward, Speed_Manager.instance._globalSpeed);
+        RaycastHit hit;
+        Ray ray = new Ray(interactOrigin.position, transform.forward);
+        if (!Physics.Raycast(ray, out hit, 0.3f))
+        {
+            transform.DOLocalMove(transform.position + transform.forward, Speed_Manager.instance._globalSpeed);
+        }
+        else
+        {
+            Debug.Log("Not hit someting");
+        }
     }
 
     [ContextMenu("Move Backward")]

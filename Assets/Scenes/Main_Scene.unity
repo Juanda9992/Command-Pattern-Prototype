@@ -499,6 +499,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 85497648}
+        m_TargetAssemblyTypeName: Custom_Data_Loader, Assembly-CSharp
+        m_MethodName: DeleteCustomObjects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &85497648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,7 +1187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d348de3f0739d4192783640c17bb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 8
+  level: 7
   level_Rules_Manager: {fileID: 1204721424}
   world_Loader: {fileID: 85497647}
   winCanvas: {fileID: 1606230665}
@@ -4491,7 +4503,7 @@ GameObject:
   - component: {fileID: 1555012621}
   - component: {fileID: 1555012625}
   - component: {fileID: 1555012626}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

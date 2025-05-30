@@ -27,6 +27,11 @@ public class Input_Actions_Manager : MonoBehaviour
         return inputActions.FindAction("Scroll").ReadValue<float>();
     }
 
+    public InputAction GetInputAction(string name)
+    {
+        return inputActions.FindAction(name);
+    }
+
     public Vector2 GetMousePos()
     {
         return inputActions.FindAction("Mouse Position").ReadValue<Vector2>();
