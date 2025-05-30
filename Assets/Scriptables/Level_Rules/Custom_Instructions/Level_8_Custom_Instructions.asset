@@ -15,12 +15,12 @@ MonoBehaviour:
   customInstructions:
   - customObject: {fileID: 9076206046479106382, guid: 04df8715972dcc9458845ff4e5bc7703, type: 3}
     customObjectPos: {x: 4.5, y: 1, z: 1.5}
+    objectData: 
     events:
-    - eventType: 1
-      parameters: Hola amigos
-    - eventType: 2
+    - eventType: 3
       parameters: 
   - customObject: {fileID: 8334863684352730649, guid: 70939c641cb640147bb51702f8d2ccf1, type: 3}
     customObjectPos: {x: 6.5, y: 1, z: 0.5}
+    objectData: noDoorInteraction
     events: []
   endingPlatform: 1
