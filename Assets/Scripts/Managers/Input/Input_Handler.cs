@@ -114,6 +114,21 @@ public class Input_Handler : MonoBehaviour
         StartCoroutine(nameof(MoveNextCommand));
     }
 
+    public void StopReplay()
+    {
+        StartCoroutine(nameof(StopReplayCoroutine));
+    }
+
+    private IEnumerator StopReplayCoroutine()
+    {
+        StopCoroutine(nameof(CommandsReplay));
+        yield return new WaitForEndOfFrame();
+        action_Buttons_UI_Manager.SetHightlightButtonStatus(true);
+
+        SetUndoButtonState();
+
+    }
+
     private IEnumerator UndoLastCommandCoroutine()
     {
         isUndoingCommand = true;

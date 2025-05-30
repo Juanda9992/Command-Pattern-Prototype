@@ -19,6 +19,7 @@ public class Player_Movement : MonoBehaviour
 
         if (colliderInFront != null)
         {
+            Input_Handler.Instance.StopReplay();
             Debug.Log(colliderInFront.name);
             return;
         }

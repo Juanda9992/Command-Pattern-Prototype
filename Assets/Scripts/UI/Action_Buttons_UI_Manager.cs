@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Action_Buttons_UI_Manager : MonoBehaviour
 {
@@ -15,8 +16,13 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI blocksText;
 
+    [SerializeField] private Color highlightCorrect, highlightIncorrect;
+
+    private Image highlightImage;
+
     void Start()
     {
+        highlightImage = highlightButton.GetComponent<Image>();
         SetBlockText();
     }
 
@@ -63,6 +69,7 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
     {
         if (index >= 0)
         {
+            SetHightlightButtonStatus(false);
             highlightButton.SetActive(true);
 
             highlightButton.transform.position = allButtonsStored[index].transform.position;
@@ -71,6 +78,11 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
         {
             highlightButton.SetActive(false);
         }
+    }
+
+    public void SetHightlightButtonStatus(bool wrong)
+    {
+        highlightImage.color = wrong ? highlightIncorrect : highlightCorrect;
     }
 
     public void ResetToDefault()

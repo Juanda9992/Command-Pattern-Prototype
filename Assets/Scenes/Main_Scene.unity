@@ -5992,6 +5992,8 @@ MonoBehaviour:
   allButtonsStored: []
   highlightButton: {fileID: 1805217642}
   blocksText: {fileID: 1248457577}
+  highlightCorrect: {r: 0.11764706, g: 1, b: 0, a: 0.47058824}
+  highlightIncorrect: {r: 1, g: 0.028301716, b: 0.028301716, a: 0.47058824}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
