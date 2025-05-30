@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Custom_Data_Loader : MonoBehaviour
 {
+    private List<GameObject> customObjectsInScene = new List<GameObject>();
     public void SetCustomLevelData(Custom_Loading_Data data)
     {
         Debug.Log("Custom Data exist with" + data.customInstructions.Length + " instructions");
@@ -14,6 +15,8 @@ public class Custom_Data_Loader : MonoBehaviour
         {
             instruction = data.customInstructions[i];
             currentObject = Instantiate(instruction.customObject, instruction.customObjectPos, Quaternion.identity);
+
+            customObjectsInScene.Add(currentObject);
 
             ExecuteAction(instruction, currentObject);
 
@@ -61,6 +64,16 @@ public class Custom_Data_Loader : MonoBehaviour
             }
 
         }
+    }
+
+    public void DeleteCustomObjects()
+    {
+        for (int i = 0; i < customObjectsInScene.Count; i++)
+        {
+            Destroy(customObjectsInScene[i]);
+        }
+
+        customObjectsInScene.Clear();
     }
 
     private IEnumerator DisableEndingPoint()
