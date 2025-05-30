@@ -92,6 +92,7 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
             Destroy(allButtonsStored[i]);
         }
         allButtonsStored.Clear();
+        SetBlockText();
         highlightButton.SetActive(false);
     }
 }
