@@ -38,5 +38,15 @@ public class Door_Behavior : Interactable
         visual.transform.DOLocalMove(finalPos, Speed_Manager.instance._globalSpeed);
         doorCollider.isTrigger = true;
     }
+
+    void OnEnable()
+    {
+        Level_Loader_Manager.OnRestartLevel += Undo;
+    }
+
+    void OnDisable()
+    {
+        Level_Loader_Manager.OnRestartLevel -= Undo;
+    }
 }
 
