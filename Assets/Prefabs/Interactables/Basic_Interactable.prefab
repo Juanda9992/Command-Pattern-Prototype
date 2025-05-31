@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6545782820713887178}
   - component: {fileID: 8659682264108188632}
   m_Layer: 0
-  m_Name: Debug_Interactable
+  m_Name: Basic_Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
