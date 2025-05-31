@@ -56,6 +56,7 @@ public class Player_Movement : MonoBehaviour
         {
             if (objInFront.TryGetComponent<Interactable>(out Interactable interactable))
             {
+                Debug.Log(objInFront.name);
                 if (forwardInteraction)
                 {
                     interactable.Interact();
