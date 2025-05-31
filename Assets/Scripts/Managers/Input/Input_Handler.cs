@@ -96,6 +96,13 @@ public class Input_Handler : MonoBehaviour
         redoButton.interactable = allCommandsStored.Count > 0 && commandIndex < allCommandsStored.Count - 1;
     }
 
+    private void DisableAllButtons()
+    {
+        redoButton.interactable = false;
+        undoButton.interactable = false;
+
+    }
+
     [ContextMenu("Test Replay")]
     public void PlayStoredCommands()
     {
@@ -164,6 +171,8 @@ public class Input_Handler : MonoBehaviour
         playButton.interactable = false;
 
         commandIndex = commandIndex == -1 ? 0 : commandIndex;
+
+        DisableAllButtons();
         for (int i = commandIndex; i < allCommandsStored.Count; i++)
         {
             if (commandIndex != -1 && executingFirstCommand)
