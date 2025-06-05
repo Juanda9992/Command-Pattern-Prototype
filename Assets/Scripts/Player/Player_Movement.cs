@@ -17,16 +17,16 @@ public class Player_Movement : MonoBehaviour
         Collider colliderInFront = CheckForObjectInFront();
         Collider objInGround = CheckObjectInGround();
 
-        if (colliderInFront != null)
+        if (colliderInFront != null && !colliderInFront.isTrigger)
         {
             Input_Handler.Instance.StopReplay();
             Debug.Log(colliderInFront.name);
             return;
         }
         if (objInGround == null)
-        {
-            return;
-        }
+            {
+                return;
+            }
         transform.DOLocalMove(transform.position + transform.forward, Speed_Manager.instance._globalSpeed);
     }
 

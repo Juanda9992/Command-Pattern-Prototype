@@ -9,6 +9,11 @@ public class Custom_Data_Loader : MonoBehaviour
     public void SetCustomLevelData(Custom_Loading_Data data)
     {
         Debug.Log("Custom Data exist with" + data.customInstructions.Length + " instructions");
+
+        if (data.custom_Winning_Condition.winCondition != Custom_Winning_Condition.WinCondition.None)
+        {
+            Custom_Gameflow_Manager.instance.SetWinCondition(data.custom_Winning_Condition);
+        }
         GameObject currentObject;
         Custom_Loading_Instruction instruction;
         for (int i = 0; i < data.customInstructions.Length; i++)
@@ -37,6 +42,11 @@ public class Custom_Data_Loader : MonoBehaviour
         {
             gameObject.GetComponent<Door_Behavior>().canInteract = false;
         }
+
+        if (data == "noToggle")
+        {
+            gameObject.GetComponent<Toggle_Ineractable>().multiTrigger = false;
+        }
     }
     private void ExecuteAction(Custom_Loading_Instruction instruction, GameObject logicObject)
     {
@@ -59,7 +69,12 @@ public class Custom_Data_Loader : MonoBehaviour
 
                 case Custom_Event_Data.EventType.Door:
                     interactable.interactAction += () => { GameObject.FindObjectOfType<Door_Behavior>().RemoteInteraction(); };
-                    interactable.undoAction += ()=>{GameObject.FindObjectOfType<Door_Behavior>().Undo(); };
+                    interactable.undoAction += () => { GameObject.FindObjectOfType<Door_Behavior>().Undo(); };
+                    break;
+
+                case Custom_Event_Data.EventType.Counter:
+                    interactable.interactAction += () => Custom_Gameflow_Manager.instance.IncreaseNumber();
+                    interactable.undoAction += () => Custom_Gameflow_Manager.instance.DecreaseNumber();
                     break;
             }
 
@@ -81,6 +96,5 @@ public class Custom_Data_Loader : MonoBehaviour
         yield return new WaitForEndOfFrame();
         GameObject go = GameObject.FindWithTag("End_Point");
         go.SetActive(false);
-        Debug.Log(go);
     }
 }

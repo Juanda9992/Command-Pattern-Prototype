@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d348de3f0739d4192783640c17bb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 7
+  level: 9
   level_Rules_Manager: {fileID: 1204721424}
   world_Loader: {fileID: 85497647}
   winCanvas: {fileID: 1606230665}
@@ -2764,6 +2764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1204721423}
   - component: {fileID: 1204721424}
+  - component: {fileID: 1204721425}
   m_Layer: 0
   m_Name: Rules
   m_TagString: Untagged
@@ -2805,6 +2806,20 @@ MonoBehaviour:
   moveButton: {fileID: 695291928}
   interactButton: {fileID: 2124065131}
   camera_Controller: {fileID: 963194229}
+--- !u!114 &1204721425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204721422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b62ed088c4f7f04f917aa2d108955b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalNumber: -1
+  counterNumber: 0
 --- !u!1 &1248457575
 GameObject:
   m_ObjectHideFlags: 0

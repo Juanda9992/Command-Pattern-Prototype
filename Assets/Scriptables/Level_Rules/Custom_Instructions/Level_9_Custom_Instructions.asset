@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4517b3a646bbcc47b2c259d744b1b91, type: 3}
+  m_Name: Level_9_Custom_Instructions
+  m_EditorClassIdentifier: 
+  customInstructions:
+  - customObject: {fileID: 4708865592589312944, guid: d70ab6cec0a09184caaf6db2dc46796a, type: 3}
+    customObjectPos: {x: 3.5, y: 1, z: 1.5}
+    objectData: noToggle
+    events:
+    - eventType: 4
+      parameters: 
+  - customObject: {fileID: 4708865592589312944, guid: d70ab6cec0a09184caaf6db2dc46796a, type: 3}
+    customObjectPos: {x: 5.5, y: 1, z: 1.5}
+    objectData: noToggle
+    events:
+    - eventType: 4
+      parameters: 
+  - customObject: {fileID: 4708865592589312944, guid: d70ab6cec0a09184caaf6db2dc46796a, type: 3}
+    customObjectPos: {x: 7.5, y: 1, z: 0.5}
+    objectData: noToggle
+    events:
+    - eventType: 4
+      parameters: 
+  custom_Winning_Condition:
+    winCondition: 1
+    parameters: 3
+  endingPlatform: 0

@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb97c89e12ea1894ab77f3a3de05305a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiTrigger: 0
+  multiTrigger: 1
   _renderer: {fileID: 7925973775949880649}
   offColor: {r: 1, g: 0, b: 0, a: 1}
   onColor: {r: 0, g: 1, b: 0.09515977, a: 1}

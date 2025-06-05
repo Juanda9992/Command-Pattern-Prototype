@@ -12,7 +12,7 @@ public class Toggle_Ineractable : Interactable
 
     void Start()
     {
-        TurnOffObject();
+        _renderer.material.DOColor(offColor, Speed_Manager.instance._globalSpeed);
     }
 
     public override void Interact()
@@ -56,9 +56,8 @@ public class Toggle_Ineractable : Interactable
     }
 
     private void TurnOnObject()
-    {   
+    {
         base.Interact();
-        Debug.Log("Enter here");
         _renderer.material.DOColor(onColor, Speed_Manager.instance._globalSpeed);
     }
 
