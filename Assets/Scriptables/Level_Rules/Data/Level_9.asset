@@ -17,7 +17,7 @@ MonoBehaviour:
   rotateLeftButton: 1
   rotateTightButton: 1
   interactButton: 1
-  maxBlockLimit: 10
+  maxBlockLimit: 15
   playerRotation: 90
   cameraZoom: 12
   custom_Loading_Data: {fileID: 11400000, guid: a87a0ceba16b5c547ae1dc60c4fb0343, type: 2}
