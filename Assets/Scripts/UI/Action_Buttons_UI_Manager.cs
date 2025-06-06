@@ -12,6 +12,7 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
 
     [SerializeField] private List<GameObject> allButtonsStored;
 
+    [SerializeField] private Scrollbar scrollbar;
     [SerializeField] private GameObject highlightButton;
 
     [SerializeField] private TextMeshProUGUI blocksText;
@@ -51,6 +52,7 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
 
     public void RemoveActionAt(int index)
     {
+        highlightButton.transform.SetParent(null);
         allButtonsStored.RemoveAt(index);
         RecalculateButtonsIndex();
         SetBlockText();
@@ -72,11 +74,21 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
             SetHightlightButtonStatus(false);
             highlightButton.SetActive(true);
 
-            highlightButton.transform.position = allButtonsStored[index].transform.position;
+            highlightButton.transform.parent = allButtonsStored[index].transform;
+            highlightButton.transform.localPosition = Vector2.zero;
         }
         else
         {
             highlightButton.SetActive(false);
+        }
+
+        if (highlightButton.transform.position.y < 490)
+        {
+            Debug.Log(highlightButton.transform.position.y);
+            if (scrollbar.value > 0.1)
+            {
+                scrollbar.value -= 0.2f;
+            }
         }
     }
 
@@ -87,12 +99,13 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
 
     public void ResetToDefault()
     {
+        highlightButton.transform.SetParent(null);
+        highlightButton.SetActive(false);
         for (int i = 0; i < allButtonsStored.Count; i++)
         {
             Destroy(allButtonsStored[i]);
         }
         allButtonsStored.Clear();
         SetBlockText();
-        highlightButton.SetActive(false);
     }
 }
