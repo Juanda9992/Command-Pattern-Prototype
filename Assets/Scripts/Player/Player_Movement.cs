@@ -48,6 +48,7 @@ public class Player_Movement : MonoBehaviour
     public void MoveBackward()
     {
         transform.DOLocalMove(transform.position - transform.forward, Speed_Manager.instance._globalSpeed);
+        playerAnimator.SetTrigger("Walk_Backwards");
     }
 
     [ContextMenu("Rotate Left")]
