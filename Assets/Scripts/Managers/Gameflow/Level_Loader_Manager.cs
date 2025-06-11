@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -32,7 +33,14 @@ public class Level_Loader_Manager : MonoBehaviour
 
     public void ShowWinCanvas()
     {
+        StartCoroutine(nameof(ShowCanvasWithDelay));
+    }
+
+    private IEnumerator ShowCanvasWithDelay()
+    {
+        yield return new WaitForSeconds(Speed_Manager.instance._globalSpeed + 0.1f);
         winCanvas.SetActive(true);
+        
     }
 
     private void SetLevelLoadingLogic()

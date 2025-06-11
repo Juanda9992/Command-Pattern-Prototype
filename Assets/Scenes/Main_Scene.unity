@@ -956,7 +956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d348de3f0739d4192783640c17bb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 3
+  level: 7
   level_Rules_Manager: {fileID: 1204721424}
   world_Loader: {fileID: 85497647}
   winCanvas: {fileID: 1606230665}
@@ -1208,6 +1208,7 @@ MonoBehaviour:
   increaseButton: {fileID: 1123736923}
   speedText: {fileID: 2025542583}
   speedIndex: 1
+  playerAnimator: {fileID: 658590649}
 --- !u!1 &534183922
 GameObject:
   m_ObjectHideFlags: 0
