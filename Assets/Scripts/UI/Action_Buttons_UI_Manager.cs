@@ -74,7 +74,7 @@ public class Action_Buttons_UI_Manager : MonoBehaviour
             SetHightlightButtonStatus(false);
             highlightButton.SetActive(true);
 
-            highlightButton.transform.parent = allButtonsStored[index].transform;
+            highlightButton.transform.SetParent(allButtonsStored[index].transform);
             highlightButton.transform.localPosition = Vector2.zero;
         }
         else

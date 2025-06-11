@@ -11,6 +11,18 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private Transform interactOrigin;
     [SerializeField] private Transform groundCheckingTransform;
 
+    [SerializeField] private Animator playerAnimator;
+
+    void Awake()
+    {
+        Level_Loader_Manager.OnRestartLevel += ResetToDefault;
+    }
+
+    private void ResetToDefault()
+    {
+        playerAnimator.SetBool("Fall", false);
+    }
+
     [ContextMenu("Move Forward")]
     public void MoveForward()
     {
@@ -24,10 +36,12 @@ public class Player_Movement : MonoBehaviour
             return;
         }
         if (objInGround == null)
-            {
-                return;
-            }
+        {
+            playerAnimator.SetBool("Fall",true);
+            return;
+        }
         transform.DOLocalMove(transform.position + transform.forward, Speed_Manager.instance._globalSpeed);
+        playerAnimator.SetTrigger("Walk");
     }
 
     [ContextMenu("Move Backward")]
@@ -39,13 +53,15 @@ public class Player_Movement : MonoBehaviour
     [ContextMenu("Rotate Left")]
     public void RotateLeft()
     {
-        transform.DOLocalRotate(Vector3.up * -90, Speed_Manager.instance._globalSpeed, RotateMode.WorldAxisAdd);
+        transform.DOLocalRotate(Vector3.up * -90, Speed_Manager.instance._globalSpeed, RotateMode.WorldAxisAdd).SetEase(Ease.OutQuart);
+        playerAnimator.SetTrigger("Left");
     }
 
     [ContextMenu("Rotate Right")]
     public void RotateRight()
     {
-        transform.DOLocalRotate(Vector3.up * 90, Speed_Manager.instance._globalSpeed, RotateMode.WorldAxisAdd);
+        transform.DOLocalRotate(Vector3.up * 90, Speed_Manager.instance._globalSpeed, RotateMode.WorldAxisAdd).SetEase(Ease.OutQuart);;
+        playerAnimator.SetTrigger("Right");
     }
 
     [ContextMenu("Interact")]
@@ -71,6 +87,7 @@ public class Player_Movement : MonoBehaviour
         {
             Debug.Log("Nothing");
         }
+        playerAnimator.SetTrigger("Interact");
     }
 
     private Collider CheckForObjectInFront()

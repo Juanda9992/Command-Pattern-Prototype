@@ -12,6 +12,8 @@ public class Speed_UI_Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speedText;
     [SerializeField] private int speedIndex = 1;
 
+
+    [SerializeField] private Animator playerAnimator;
     void Start()
     {
         UpdateSpeedValue();
@@ -44,6 +46,9 @@ public class Speed_UI_Manager : MonoBehaviour
     {
         Speed_Manager.instance._globalSpeed = speedValues[speedIndex].speedValue;
         speedText.text = speedValues[speedIndex].speedMultiplerText + $"<sub>x</sub>";
+
+        playerAnimator.speed = 2-Speed_Manager.instance._globalSpeed;
+        Debug.Log(playerAnimator.speed);
     }
 
     private void SetButtonsState()
