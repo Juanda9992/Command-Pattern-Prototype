@@ -19,7 +19,7 @@ public class Custom_Data_Loader : MonoBehaviour
         for (int i = 0; i < data.customInstructions.Length; i++)
         {
             instruction = data.customInstructions[i];
-            currentObject = Instantiate(instruction.customObject, instruction.customObjectPos, Quaternion.identity);
+            currentObject = Instantiate(instruction.customObject, instruction.customObjectPos, Quaternion.Euler(0,instruction.yRotation,0));
 
             customObjectsInScene.Add(currentObject);
 
@@ -52,6 +52,8 @@ public class Custom_Data_Loader : MonoBehaviour
     {
         Custom_Event_Data data;
         Interactable interactable = logicObject.GetComponent<Interactable>();
+
+        interactable = interactable == null ? logicObject.GetComponentInChildren<Interactable>() : interactable;
         for (int i = 0; i < instruction.events.Length; i++)
         {
 

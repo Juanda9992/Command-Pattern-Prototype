@@ -13,6 +13,7 @@ public class Custom_Loading_Instruction
 {
     public GameObject customObject;
     public Vector3 customObjectPos;
+    public float yRotation;
     public string objectData;
     public Custom_Event_Data[] events;
 }
