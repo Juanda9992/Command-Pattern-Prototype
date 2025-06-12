@@ -15,9 +15,14 @@ MonoBehaviour:
   customInstructions:
   - customObject: {fileID: 9076206046479106382, guid: 04df8715972dcc9458845ff4e5bc7703, type: 3}
     customObjectPos: {x: 5.5, y: 1, z: 0.5}
+    yRotation: -90
+    objectData: 
     events:
     - eventType: 1
       parameters: Hola amigos
     - eventType: 2
       parameters: 
+  custom_Winning_Condition:
+    winCondition: 0
+    parameters: 
   endingPlatform: 0
