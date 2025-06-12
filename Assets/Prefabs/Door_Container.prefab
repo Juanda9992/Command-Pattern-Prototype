@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7f7b80b3e2cc8c649b31722ca2723b2c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fa9bd09d08ab14f9c8eb48eb51afa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animateObject: {fileID: 0}
+  executeWithDelay: 0
   id: 0
   canInteract: 1
   doorCollider: {fileID: 6784815296599794018}

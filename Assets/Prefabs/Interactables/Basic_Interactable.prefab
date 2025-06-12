@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2488235573497601309}
   - component: {fileID: 1067598510343969763}
   - component: {fileID: 5673361140015732570}
-  - component: {fileID: 6991271150735996177}
   - component: {fileID: 9023646234331745756}
+  - component: {fileID: 5347838782724444104}
   m_Layer: 0
   m_Name: Button_Visual
   m_TagString: Untagged
@@ -51,7 +51,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3310158630569513432}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -64,6 +64,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5335b87a2a5cc93409ab332e04c38fef, type: 2}
+  - {fileID: 2100000, guid: 6a54437521026e64390cb65381ee1582, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6991271150735996177
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3310158630569513432}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9023646234331745756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +100,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPos: {x: 0, y: 0.177, z: 0.358}
   finalPos: {x: 0, y: 0.177, z: 0.217}
+--- !u!114 &5347838782724444104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3310158630569513432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dee33f2276c9f74e9911b810c801df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineThicknes: 0.2
+  _renderer: {fileID: 5673361140015732570}
 --- !u!1 &5267822047887758891
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +128,7 @@ GameObject:
   - component: {fileID: 9034010466981771923}
   - component: {fileID: 3965894616898486997}
   - component: {fileID: 4126536280709422038}
+  - component: {fileID: 2610563824791582442}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -171,7 +167,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5267822047887758891}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -183,7 +179,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7f7b80b3e2cc8c649b31722ca2723b2c, type: 2}
   - {fileID: 2100000, guid: 6a54437521026e64390cb65381ee1582, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -241,6 +237,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animateObject: {fileID: 9023646234331745756}
   executeWithDelay: 1
+--- !u!114 &2610563824791582442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267822047887758891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dee33f2276c9f74e9911b810c801df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineThicknes: 0.15
+  _renderer: {fileID: 9034010466981771923}
 --- !u!1 &9076206046479106382
 GameObject:
   m_ObjectHideFlags: 0
